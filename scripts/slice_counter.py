@@ -1,6 +1,6 @@
 import os
 import argparse
-import iteritems
+
 from collections import Counter
 
 parser = argparse.ArgumentParser()
@@ -8,13 +8,16 @@ parser.add_argument("proteom_file")
 parser.add_argument("output_dir")
 args = parser.parse_args()
 
+def count_peptides_of_seq(protein_seq, window=9):
+    epitopes = [protein_seq[i:i+window] for i in range(len(protein_seq)-window+1)]
+    return Counter(epitopes)
+ 
+def count_peptides_in_collection(proteins):
+  return
+
 def main(proteom_file, output_dir):
-  protein_seq = "AWRFARFGDSGAEWRWRWAERWRQQARWE"
-
-  d = Counter(protein_seq)
-
-  it = iter(seq)
-  result = tuple(islice(it, n))
+  proteins = parse_fasta_proteome(proteom_file)
+  epitope_numbers = count_peptides_in_collection(proteins)
   return
 
 
