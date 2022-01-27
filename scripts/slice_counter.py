@@ -8,14 +8,17 @@ parser.add_argument("proteom_file")
 parser.add_argument("output_dir")
 args = parser.parse_args()
 
-def count_peptides_of_seq(protein_seq, window=9):
-   epitopes = [protein_seq[i:i+window] for i in range(len(protein_seq)-window+1)]
-   return Counter(epitopes)
+def count_peptides_of_seq(protein, protein_seq, window=9, epitopes=None):
+    if epitopes is None:
+        epitopes = defaultdict(list)
+    for i in range(len(protein_seq)-window+1):
+        epitopes[protein_seq[i:i+window]].append(str(i) + "_" + protein)
+    return epitopes
  
 def count_peptides_in_collection(proteins):
-  epi_map = dict()
+  epi_map = defaultdict(list)
   for name, seq in proteins:
-    epi_map = count_peptides_of_seq(name, seq, epi_map)
+    epi_map = count_peptides_of_seq(name, seq, epitopes=epi_map)
   return epi_map
 
 def main(proteom_file, output_dir):
