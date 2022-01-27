@@ -1,10 +1,22 @@
 import os
+import argparse
 import iteritems
 from collections import Counter
 
-protein_seq = "AWRFARFGDSGAEWRWRWAERWRQQARWE"
+parser = argparse.ArgumentParser()
+parser.add_argument("proteom_file")
+parser.add_argument("output_dir")
+args = parser.parse_args()
 
-d = Counter(protein_seq)
+def main(proteom_file, output_dir):
+  protein_seq = "AWRFARFGDSGAEWRWRWAERWRQQARWE"
 
-it = iter(seq)
-result = tuple(islice(it, n))
+  d = Counter(protein_seq)
+
+  it = iter(seq)
+  result = tuple(islice(it, n))
+  return
+
+
+if __name__ == "__main__":
+    main(args.proteom_file, args.output_dir)
