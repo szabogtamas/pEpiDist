@@ -1,10 +1,10 @@
 import os
 import argparse
 
-from collections import Counter
+from collections import defaultdict
 
 parser = argparse.ArgumentParser()
-parser.add_argument("proteom_file")
+parser.add_argument("proteome_file")
 parser.add_argument("output_dir")
 args = parser.parse_args()
 
@@ -30,11 +30,11 @@ def count_peptides_in_collection(proteins):
         epi_map = count_peptides_of_seq(name, seq, epitopes=epi_map)
       return epi_map
 
-def main(proteom_file, output_dir):
-      proteins = parse_fasta_proteome(proteom_file)
+def main(proteome_file, output_dir):
+      proteins = parse_fasta_proteome(proteome_file)
       epitope_numbers = count_peptides_in_collection(proteins)
       return
 
 
 if __name__ == "__main__":
-      main(args.proteom_file, args.output_dir)
+      main(args.proteome_file, args.output_dir)
