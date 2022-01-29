@@ -32,11 +32,9 @@ def count_peptides_in_collection(proteins, window_size):
         epi_map = count_peptides_of_seq(name, seq, window_size, epitopes=epi_map)
     return epi_map
 
-def textify_epinet(epi_dict):
-    out_text = []
-    for k, v in epi_dict.items():
-        out_text.append((k, len(v), ";".join(v)))
-    return out_text
+def summarise_pepinet(d):
+    summary_stats = [(k, len(v), ";".join(v)) for k, v in d.items()]
+    return summary_stats
 
 def main(proteome_file, output_dir, window_size):
     proteins = parse_fasta_proteome(proteome_file)
