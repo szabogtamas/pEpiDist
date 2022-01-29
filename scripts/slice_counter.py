@@ -11,11 +11,12 @@ args = parser.parse_args()
 
 def parse_fasta_proteome(fasta_file):
     with open(fasta_file, "r") as f:
-        fasta_seqs = f.read().split(">")
-        protein_seqs = list()
+        fasta_seqs = f.read().split("\n>")
+        protein_seqs = fasta_seqs[0].split("\n", 1)
+        protein_seqs = [(protein_seqs[0].replace(">", "").split("|")[0], protein_seqs[1].replace("\n", "").replace(" ", ""))]
         for s in fasta_seqs[1:]:
-            name, seq = s.split("\n", 1)
-            protein_seqs.append((name.split("|")[1], seq.replace("\n", "").replace(" ", "")))
+          name, seq = s.split("\n", 1)
+          protein_seqs.append((name.split("|")[0], seq.replace("\n", "").replace(" ", "")))
     return protein_seqs
 
 def count_peptides_of_seq(protein, protein_seq, window=9, epitopes=None):
@@ -26,16 +27,16 @@ def count_peptides_of_seq(protein, protein_seq, window=9, epitopes=None):
     return epitopes
  
 def count_peptides_in_collection(proteins, window_size):
-      epi_map = defaultdict(list)
-      for name, seq in proteins:
+    epi_map = defaultdict(list)
+    for name, seq in proteins:
         epi_map = count_peptides_of_seq(name, seq, window_size, epitopes=epi_map)
-      return epi_map
+    return epi_map
 
 def main(proteome_file, output_dir, window_size):
-      proteins = parse_fasta_proteome(proteome_file)
-      epitope_numbers = count_peptides_in_collection(proteins, window_size)
-      return
+    proteins = parse_fasta_proteome(proteome_file)
+    epitope_numbers = count_peptides_in_collection(proteins, window_size)
+    return
 
 
 if __name__ == "__main__":
-      main(args.proteome_file, args.output_dir, args.window_size)
+    main(args.proteome_file, args.output_dir, args.window_size)
