@@ -34,6 +34,7 @@ def count_peptides_in_collection(proteins, window_size):
 
 def summarise_pepinet(d):
     summary_stats = [(k, len(v), ";".join(v)) for k, v in d.items()]
+    summary_stats.sort()
     return summary_stats
 
 def main(proteome_file, output_dir, window_size):
