@@ -40,6 +40,7 @@ def summarise_pepinet(d):
 def main(proteome_file, output_dir, window_size):
     proteins = parse_fasta_proteome(proteome_file)
     epitope_numbers = count_peptides_in_collection(proteins, window_size)
+    overlap_list = summarise_pepinet(epitope_numbers)
     return
 
 
