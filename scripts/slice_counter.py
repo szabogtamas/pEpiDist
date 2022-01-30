@@ -5,8 +5,8 @@ from collections import defaultdict
 
 parser = argparse.ArgumentParser()
 parser.add_argument("proteome_file")
-parser.add_argument("output_dir")
-parser.add_argument("window_size", default=8)
+parser.add_argument("output_dir", nargs="?", default="")
+parser.add_argument("window_size", nargs="?", default=8)
 args = parser.parse_args()
 
 def parse_fasta_proteome(fasta_file):
