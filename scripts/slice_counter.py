@@ -3,11 +3,20 @@ import argparse
 
 from collections import defaultdict
 
-parser = argparse.ArgumentParser()
-parser.add_argument("proteome_file")
-parser.add_argument("output_dir", nargs="?", default="")
-parser.add_argument("window_size", nargs="?", default=8)
-args = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("proteome_file")
+    parser.add_argument("output_dir", nargs="?", default="")
+    parser.add_argument("window_size", nargs="?", default=8)
+    args = parser.parse_args()
+    native_result = create_peptide_db(args.proteome_file, args.output_dir, args.window_size)
+    return
+
+def create_peptide_db(proteome_file, output_dir, window_size):
+    proteins = parse_fasta_proteome(proteome_file)
+    epitope_numbers = count_peptides_in_collection(proteins, window_size)
+    overlap_list = summarise_pepinet(epitope_numbers)
+    return overlap_list
 
 def parse_fasta_proteome(fasta_file):
     with open(fasta_file, "r") as f:
@@ -37,12 +46,5 @@ def summarise_pepinet(d):
     summary_stats.sort(key=lambda x: x[1], reverse=True)
     return summary_stats
 
-def main(proteome_file, output_dir, window_size):
-    proteins = parse_fasta_proteome(proteome_file)
-    epitope_numbers = count_peptides_in_collection(proteins, window_size)
-    overlap_list = summarise_pepinet(epitope_numbers)
-    return
-
-
 if __name__ == "__main__":
-    main(args.proteome_file, args.output_dir, args.window_size)
+    main()
