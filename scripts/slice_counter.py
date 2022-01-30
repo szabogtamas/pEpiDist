@@ -6,13 +6,15 @@ from collections import defaultdict
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("proteome_file")
-    parser.add_argument("output_dir", nargs="?", default="")
+    parser.add_argument("output_file", nargs="?", default="pepi_net.tsv")
     parser.add_argument("window_size", nargs="?", default=8)
     args = parser.parse_args()
-    native_result = create_peptide_db(args.proteome_file, args.output_dir, args.window_size)
+    native_result = create_peptide_db(args.proteome_file, args.window_size)
+    with open(args.output_file, "w") as f:
+        f.write("\n".join([a + "\t" + str(b) + "\t" + c for a, b, c in native_result]))
     return
 
-def create_peptide_db(proteome_file, output_dir, window_size):
+def create_peptide_db(proteome_file, window_size):
     """The main coordinating function that processes a fasta proteome and returns shared peptides."""
     proteins = parse_fasta_proteome(proteome_file)
     epitope_numbers = count_peptides_in_collection(proteins, window_size)
