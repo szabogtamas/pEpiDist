@@ -1,6 +1,4 @@
-import os
 import argparse
-
 from collections import defaultdict
 
 def main():
