@@ -3,7 +3,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("peptides")
-    parser.add_argument("output_file", nargs="?", default="pepi_net.tsv")
+    parser.add_argument("output_file", nargs="?", default="kidera_distances.tsv")
     args = parser.parse_args()
     native_result = calculate similarities(args.peptides)
     with open(args.output_file, "w") as f:
@@ -11,7 +11,7 @@ def main():
     return
 
 def calculate similarities(peptides):
-    """Calculate chemical similarity of peptides."""
+    """Calculate chemical similarity of peptides based on Kidera factors."""
     return []
 
 if __name__ == "__main__":
