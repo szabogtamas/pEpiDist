@@ -1,4 +1,5 @@
 import argparse
+import peptides
 
 def main():
     parser = argparse.ArgumentParser()
@@ -10,9 +11,14 @@ def main():
         f.write("\n".join([a + "\t" + str(b) + "\t" + c for a, b, c in native_result]))
     return
 
-def calculate similarities(peptides):
+def calculate similarities(peps):
     """Calculate chemical similarity of peptides based on Kidera factors."""
-    return []
+    
+    scores = []
+    for peptide in peps:
+        peptide = peptides.Peptide(peptide)
+        scores.append(peptide.kidera()
+    return scores
 
 if __name__ == "__main__":
     main()
