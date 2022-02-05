@@ -1,5 +1,6 @@
 import argparse
 import peptides
+import numpy as np
 
 def main():
     parser = argparse.ArgumentParser()
@@ -19,6 +20,11 @@ def calculate similarities(peps):
         peptide = peptides.Peptide(peptide)
         scores.append(peptide.kidera()
     return scores
+
+def numeric_encode(peptide):
+    """Numerically encode peptide based on Kidera factors."""
+    coords = np.flatten(peptide.kidera())
+    return coords
 
 if __name__ == "__main__":
     main()
