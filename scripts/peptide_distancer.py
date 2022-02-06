@@ -1,5 +1,6 @@
 import argparse
 import peptides
+import math
 import numpy as np
 
 def main():
@@ -25,6 +26,10 @@ def numeric_encode(peptide):
     """Numerically encode peptide based on Kidera factors."""
     coords = np.flatten(peptide.kidera())
     return coords
+
+def distance_betwwen(p1, p2):
+    """Clculated distance of two peptides."""
+    return math.dist(numeric_encode(p1), numeric_encode(p2))
 
 if __name__ == "__main__":
     main()
