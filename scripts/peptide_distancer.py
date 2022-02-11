@@ -27,9 +27,13 @@ def numeric_encode(peptide):
     coords = np.flatten(peptide.kidera())
     return coords
 
-def distance_betwwen(p1, p2):
-    """Clculated distance of two peptides."""
+def distance_between(p1, p2):
+    """Calculated distance of two peptides."""
     return math.dist(numeric_encode(p1), numeric_encode(p2))
+
+def calculate_distance_matrix(peptides):
+    """A distance matrix of peptides."""
+    return sklearn.metrics.pairwise_distances(peptides, metric=distance_between)
 
 if __name__ == "__main__":
     main()
