@@ -1,6 +1,6 @@
 FROM python
 
-RUN pip install numpy peptides
+RUN pip install numpy peptides scikit-learn
 
 RUN mkdir -p /scripts
 COPY test_data/test.fa /test_data/test.fa
