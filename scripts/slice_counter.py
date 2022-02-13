@@ -27,7 +27,7 @@ def parse_fasta_proteome(fasta_file):
         protein_seqs = [(protein_seqs[0].replace(">", "").split("|")[0], protein_seqs[1].replace("\n", "").replace(" ", ""))]
         for s in fasta_seqs[1:]:
             name, seq = s.split("\n", 1)
-            protein_seqs.append((name.split("|")[0], seq.replace("\n", "").replace(" ", "")))
+            protein_seqs.append((name.split("|")[1], seq.replace("\n", "").replace(" ", "")))
     return protein_seqs
 
 def count_peptides_of_seq(protein, protein_seq, window=9, epitopes=None):
