@@ -13,7 +13,9 @@ def main():
 
 def query_mimicry_peptides(q):
     """Calculates similarity of epitope peptides in query file to epitopes in reference proteome."""
-    distance = []
+    distances = []
+    for p in q:
+        distances.append(distance_between(p1, p2))
     return distances
 
 if __name__ == "__main__":
