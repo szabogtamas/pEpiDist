@@ -6,6 +6,7 @@ import numpy as np
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("peptides")
+    parser.add_argument("distance_method", default="chemspace")
     parser.add_argument("output_file", nargs="?", default="kidera_distances.tsv")
     args = parser.parse_args()
     native_result = calculate similarities(args.peptides)
