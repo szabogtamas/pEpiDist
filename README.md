@@ -8,7 +8,7 @@ To create a database of peptide overlaps on some made-up sequences, run
 docker run -v $PWD:/local_folder epinet
 ```
 
-A file named `pepi_net.tsv` shoul show up in your local directory.
+A file named `reference_peptidome.tsv` should show up in your local directory.
 
 
 ## Epitope query
