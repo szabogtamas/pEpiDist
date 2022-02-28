@@ -4,7 +4,7 @@ from collections import defaultdict
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("proteome_file")
-    parser.add_argument("output_file", nargs="?", default="/local_folder/pepi_net.tsv")
+    parser.add_argument("output_file", nargs="?", default="/local_folder/reference_peptidome.tsv")
     parser.add_argument("--window_size", "-w", "-s", default=8)
     args = parser.parse_args()
     native_result = create_peptide_db(args.proteome_file, args.window_size)
