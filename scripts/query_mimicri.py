@@ -1,5 +1,5 @@
 import argparse
-import .
+form . import distance_between
 
 def main():
     parser = argparse.ArgumentParser()
