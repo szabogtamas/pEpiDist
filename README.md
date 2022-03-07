@@ -1,5 +1,8 @@
 # proteome_slices
 
+## Usage
+A typical use case is to search for peptides similar to an epitope.
+
 ## Database initialization
 Proteome-wide census of peptide overlaps and similarities for epitope screens
 
