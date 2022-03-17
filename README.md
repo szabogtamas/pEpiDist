@@ -1,4 +1,6 @@
-# proteome_slices
+# pEpiDist
+
+Similarity metrics for peptide epitopes
 
 ## Usage
 A typical use case is to search for peptides similar to an epitope.
