@@ -1,5 +1,5 @@
 import argparse
-form . import distance_between
+from pepidist import distance_between
 
 def main():
     parser = argparse.ArgumentParser()
