@@ -2,6 +2,7 @@ import argparse
 import peptides
 import math
 import numpy as np
+from pepidist import slicer
 
 def main():
     parser = argparse.ArgumentParser()
