@@ -21,7 +21,7 @@ def calculate similarities(peps):
     scores = []
     for peptide in peps:
         peptide = peptides.Peptide(peptide)
-        scores.append(peptide.kidera()
+        scores.append(peptide.kidera())
     return scores
 
 def numeric_encode(peptide):
