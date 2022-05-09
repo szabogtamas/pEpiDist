@@ -1,1 +1,1 @@
-from .slice_counter import create_peptide_db
+from .slice_counter import *
