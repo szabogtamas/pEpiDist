@@ -24,5 +24,11 @@ sys.path.append("../src")  # developmental hack, to load the local version of th
 %load_ext autoreload
 %autoreload 2
 
-import pEpiDist
+import pEpiDist as epi
+```
+
+## Initialize reference DB
+
+```python
+epi.create_peptide_db("human_proteome.fasta", 8)
 ```
