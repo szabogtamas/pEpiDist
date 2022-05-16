@@ -2,7 +2,6 @@ import argparse
 import peptides
 import math
 import numpy as np
-from pepidist import slicer
 
 def calculate_similarities(peps):
     """Calculate chemical similarity of peptides based on Kidera factors."""
