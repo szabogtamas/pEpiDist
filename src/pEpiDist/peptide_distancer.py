@@ -3,6 +3,14 @@ import peptides
 import math
 import numpy as np
 
+
+def query_mimicry_peptides(q, method="kidera"):
+    """Calculates similarity of epitope peptides in query file to epitopes in reference proteome."""
+    distances = []
+    for p in q:
+        distances.append(distance_between(p1, p2))
+    return distances
+
 def calculate_similarities(peps):
     """Calculate chemical similarity of peptides based on Kidera factors."""
     
