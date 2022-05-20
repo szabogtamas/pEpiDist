@@ -2,6 +2,7 @@ import argparse
 import peptides
 import math
 import numpy as np
+import pandas as pd
 
 
 def query_mimicry_peptides(q, method="kidera"):
@@ -9,7 +10,7 @@ def query_mimicry_peptides(q, method="kidera"):
     distances = []
     for p in q:
         distances.append(distance_between(p1, p2))
-    return distances
+    return pd.Series(distances)
 
 def calculate_similarities(peps):
     """Calculate chemical similarity of peptides based on Kidera factors."""
