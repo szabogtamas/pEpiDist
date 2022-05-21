@@ -5,12 +5,12 @@ import numpy as np
 import pandas as pd
 
 
-def query_mimicry_peptides(q, method="kidera"):
+def query_mimicry_peptides(q, protemome, method="kidera"):
     """Calculates similarity of epitope peptides in query file to epitopes in reference proteome."""
     distances = []
-    for p in q:
-        distances.append(distance_between(p1, p2))
-    return pd.Series(distances)
+    for p in protemome:
+        distances.append((p, distance_between(p, q)))
+    return pd.DataFrame.from_records(distances).sort_values(ascending=False)
 
 def calculate_similarities(peps):
     """Calculate chemical similarity of peptides based on Kidera factors."""
