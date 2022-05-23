@@ -6,9 +6,9 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.13.0
+      jupytext_version: 1.13.8
   kernelspec:
-    display_name: Python 3 (ipykernel)
+    display_name: Python 3
     language: python
     name: python3
 ---
@@ -17,6 +17,10 @@ jupyter:
 
 ```python
 import os, sys
+```
+
+```python
+!pip install peptides
 ```
 
 ```python
@@ -30,5 +34,5 @@ import pEpiDist as epi
 ## Initialize reference DB
 
 ```python
-epi.create_peptide_db("human_proteome.fasta", 8)
+epi.create_peptide_db("../proteomes/human_proteome.fasta", 8)
 ```
