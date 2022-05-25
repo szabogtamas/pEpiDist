@@ -34,5 +34,14 @@ import pEpiDist as epi
 ## Initialize reference DB
 
 ```python
-epi.create_peptide_db("../proteomes/human_proteome.fasta", 8)
+proteome_location = "../proteomes/human_proteome.fasta"
+pepi_db = "../human_peptides.pep"
+epi.create_peptide_db(proteome_location, 8 pepi_db)
+```
+
+## Query a peptide
+
+```python
+epitope_seq = "QWSWERTREWSDFDERWRWDSFREDSEQWDS"
+epi.query(epitope_seq, pepi_db)
 ```
