@@ -1,7 +1,14 @@
 import argparse
 from collections import defaultdict
 
-def create_peptide_db(proteome_file, window_size):
+def write_peptide_db(proteome_file, fn, window_size=9):
+    """A helper function that calls `create_peptide_db` and writes the db to a file."""
+    overlap_list = create_peptide_db(proteome_file, window_size)
+    with open(fn, "r") as f:
+        f.write("\n".join([";".join(x) for x in overlap_list])
+    return
+
+def create_peptide_db(proteome_file, window_size=9):
     """The main coordinating function that processes a fasta proteome and returns shared peptides."""
     proteins = parse_fasta_proteome(proteome_file)
     epitope_numbers = count_peptides_in_collection(proteins, window_size)

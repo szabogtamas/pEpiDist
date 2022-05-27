@@ -36,7 +36,7 @@ import pEpiDist as epi
 ```python
 proteome_location = "../proteomes/human_proteome.fasta"
 pepi_db = "../human_peptides.pep"
-epi.create_peptide_db(proteome_location, 8 pepi_db)
+epi.write_peptide_db(proteome_location, 8, pepi_db)
 ```
 
 ## Query a peptide
