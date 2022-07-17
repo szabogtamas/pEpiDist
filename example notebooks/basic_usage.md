@@ -39,7 +39,7 @@ pepi_db = epi.create_peptide_db(proteome_location, 8)
 ```
 
 ```python
-pepi_db[:10]
+test_peptide_set = pepi_db[:10]
 ```
 
 ## Query a peptide
