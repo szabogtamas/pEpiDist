@@ -35,11 +35,14 @@ import pEpiDist as epi
 
 ```python
 proteome_location = "../proteomes/human_proteome.fasta"
+proteome_location = "../proteomes/example.fa"
 pepi_db = epi.create_peptide_db(proteome_location, 8)
 ```
 
 ```python
 test_peptide_set = pepi_db[:10]
+
+test_peptide_set
 ```
 
 ## Query a peptide
