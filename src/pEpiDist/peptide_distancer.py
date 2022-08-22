@@ -4,6 +4,8 @@ import math
 import numpy as np
 import pandas as pd
 
+def query(q, protemome, method="kidera"):
+    return query_mimicry_peptides(q, protemome, method=method)
 
 def query_mimicry_peptides(q, protemome, method="kidera"):
     """Calculates similarity of epitope peptides in query file to epitopes in reference proteome."""
