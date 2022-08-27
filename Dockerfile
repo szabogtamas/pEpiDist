@@ -1,6 +1,6 @@
 FROM python
 
-RUN pip install numpy pandas seaborn peptides scikit-learn
+RUN pip install numpy scipy pandas seaborn peptides scikit-learn
 
 RUN mkdir -p /scripts
 COPY test_data/test.fa /test_data/test.fa
