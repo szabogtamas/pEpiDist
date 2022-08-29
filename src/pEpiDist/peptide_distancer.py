@@ -25,6 +25,7 @@ def calculate_similarities(peps):
 
 def numeric_encode(peptide):
     """Numerically encode peptide based on Kidera factors."""
+    peptide = peptides.Peptide(peptide)
     coords = np.flatten(peptide.kidera())
     return coords
 
