@@ -49,6 +49,6 @@ test_peptide_set
 
 ```python
 epitope_seq = "QWSWERTREWSDFDERWRWDSFREDSEQWDS"
-peptide_links = epi.query(epitope_seq, pepi_db)
+peptide_links = epi.query(epitope_seq, test_peptide_set)
 peptide_links.head()
 ```
