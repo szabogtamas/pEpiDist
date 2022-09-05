@@ -45,6 +45,13 @@ test_peptide_set = pepi_db[:10]
 test_peptide_set
 ```
 
+## Numerically encode based on Kidera factors
+
+```python
+scores = epi.calculate_kideras([x[0] for x in test_peptide_set])
+scores
+```
+
 ## Query a peptide
 
 ```python
