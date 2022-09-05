@@ -6,8 +6,9 @@ import pandas as pd
 
 def query_mimicry_peptides(q, protemome, method="kidera", limit=150):
     """Calculates similarity of epitope peptides in query file to epitopes in reference proteome."""
+    columns = ["Peptide", "Freq", "Proteins", "Score"]
     distances = [list(p) + [distance_between(p[0], q)] for p in protemome]  
-    return pd.DataFrame.from_records(distances).sort_values(ascending=False).head(limit)
+    return pd.DataFrame.from_records(distances, columns=columns).sort_values(by="Score", ascending=False).head(limit)
 
 def calculate_similarities(peps):
     """Calculate chemical similarity of peptides based on Kidera factors."""
