@@ -17,7 +17,7 @@ def calculate_similarities(peps):
 def numeric_encode(peptide):
     """Numerically encode peptide based on Kidera factors."""
     kf = peptides.Peptide(peptide).kidera_factors()
-    return kf
+    return np.array(kf)
 
 def distance_between(p1, p2):
     """Calculated distance of two peptides."""
