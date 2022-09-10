@@ -13,14 +13,14 @@ jupyter:
     name: python3
 ---
 
-# Potentially crossreactive SARS-CoV2 epitopes
+# Potentially cross-reactive SARS-CoV2 epitopes
 
 A case study of searching epitope similarities between SARS-CoV2 epitope peptides and the human proteome.
 
 ## Setup
 
 ```python
-import os, sys
+import os, sys, requests
 ```
 
 ```python
@@ -34,7 +34,10 @@ import pEpiDist as epi
 ## Download proteomes
 
 ```python
-!curl https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=fasta&query=%28%28organism_id%3A2697049%29%29
+# For details, see https://www.uniprot.org/help/api_queries
+
+url = 'https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=%28%28organism_id%3A2697049%29%29'
+covid_fasta_proteome = requests.get(url).text
 ```
 
 ## Initialize reference DB
