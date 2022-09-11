@@ -41,3 +41,7 @@ covid_fasta_proteome = requests.get(url).text
 ```
 
 ## Initialize reference DB
+
+```python
+pepi_db = epi.create_peptide_db(covid_fasta_proteome, 8)
+```
