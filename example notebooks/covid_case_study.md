@@ -50,3 +50,9 @@ pepi_db = epi.create_peptide_db(proteome_location, 8)
 ```python
 covid_lib = epi.create_peptide_db(covid_fasta_proteome, 8)
 ```
+
+```python
+peptide_links = []
+for pep in covid_lib[1:5]:
+  peptide_links.append(epi.query(pep, pepi_db)
+```
